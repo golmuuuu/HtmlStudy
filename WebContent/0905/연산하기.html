@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href="../css/public.css">
+<script>
+proc1 = () =>{
+	// 입력
+	su1 = ptompt("첫번재 수 입력");
+	su2 = ptompt("두번재 수 입력");
+	opr = ptompt("연산자 입력");
+	
+	// 비교 - opr :
+	swtich(opr){
+		case "+" : resr = su1 + su2;
+			break;
+		case "*" : res = su1 * su2;
+			break;
+		case "-" : res = su1 - su2;
+			break; 
+		case "/" : res = su1 /su2;
+			break;
+	}
+		
+	// 결과 출력	
+	document.querySelector('#result1').innerHTML = `${su1} ${opr} ${su2} = ${res}`;
+}
+</script>
+
+</head>
+<body>
+<pre>버튼 클릭시 두 수와 연산자를 입력하여 결과를 출력
+입력 : prompt
+출력 : innerHTML / innerText
+</pre>
+
+	<div>
+		<input type="button" value="확인" onclick="proc1()";>
+		<br>
+		<div id="result1"></div>
+	</div>
+
+</body>
+</html>

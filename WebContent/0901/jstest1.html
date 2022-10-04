@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <link rel="shortcut icon" type="image/x-icon" href="../images/check.png"> -->
+<link rel="shortcut icon" href="../images/check.png">
+<link rel ="stylesheet" href="../css/public.css">
+
+<script>/*자바스크립트는 바디나 헤드 둘다 쓸 수 있다 일반적으로는 head에 씀*/
+//	window.alert("hello~~~");
+	
+	function proc1(){
+		// window.document.write
+		document.write("Hello~~");
+		// 이미 생성되어있는 문서를 지우고 hello~를 출력한다 !
+	}
+	
+	function proc2(){
+		// 오늘 날짜를 생성 - Date()객체
+		
+		var today = new Date();
+		
+		// id=result1 요소를 검색
+		var vres = document.getElementById('result1');
+// 		var vres = document.querySelector('#result1');
+		// var로 쓸때는 변수이름이 같은 변수는 가능 하지만
+		// let은 변수이름이 같은게 여러개 불가능 !
+		
+		// 출력 내용 작성
+		var str = today + "<br>";
+		str += today.toLocaleString() + "<br>";
+// 		vres.innerHTML = today; //vres.innerText = today해도 됨 !
+		
+// 		vres.innerHTML = str;
+		vres.innerText = str;
+		// 태그가 없을때에는 innerText써도 됨 
+		// 출력할 내용에 태그가 있을 경우에는 innerHTML을 쓸 것 !
+	}
+</script>
+
+<style>
+div{
+	border : 1px dotted orange;
+	padding : 10px;
+	margin : 10px;
+	height : 50px;
+}
+</style>
+</head>
+<body>
+	
+<pre>	
+function proc1(){
+	// window.document.write
+	document.wirte("Hello~~")
+}
+
+버튼을 클릭하면 proc1()함수를 호출
+hello라는 글자를 document에 출력한다.
+이전에 이미 생성되어 있는 현재의 document는 사라진다.
+</pre>	
+	<input type="button" value="확인" onclick="proc1()">
+	<br>
+	
+	<pre>
+	proc2()함수를 호출하여 처리후 결과를 div id= result1 에 출력
+	id가 result1 인 요소를 검색
+	document.getElementById('result1')
+	document.querySelector('#result1')  - es6
+	innerHTML = 출력 내용 - 태그가 포함되어 있을때
+	innerText = 출력 내용 - html태그가 없을때 3개 다 쓸 수 있음
+	textContent = 출력 내용
+	</pre>
+	<input type="button" value="확인" onclick="proc2()">
+	<div id = "result1"></div>
+	
+</body>
+</html>

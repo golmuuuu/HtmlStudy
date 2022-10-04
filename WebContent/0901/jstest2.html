@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+
+ // 시작하면 id가 result1인 요소에 오늘의 날짜를 출력한다.
+	// 버튼이 없으면 코드를 짠 순서대로 시작됨
+	// 버튼이 있으면 바디가 먼저 실행되고 스크립트가 실행됨
+ 
+ // 1. 날짜 객체를 생성
+//  	var today = new Date();
+	
+ // 2. id=result1인 요소를 검색
+// 	var vres = document.querySelector('#result1');
+
+ // 3. 검색한 요소를 출력
+//  	var str = today + "<br>"
+//  	str += today.toLocaleString() + "<br>";
+ 	
+//  	vres.innerHTML = str;
+ 	// Uncaught TypeError: Cannot set properties of null (setting 'innerHTML')
+ 	// 이라는 오류 메세지가 뜨는데 그 이유는 vres가 null이여서 그럼
+ 	// 왜 널인가 ? 코드 짠 순서대로 시작하는데 #result1을 찾을수가 없어서 vres에 null값이 들어간 것임 
+ 	// 이럴땐 스크립트를 body에 적는다 (가져올 값 밑으로 )
+
+</script>
+</head>
+<body>
+
+<div id="result1"></div>
+<script>
+// 날짜 객체를 생성
+ 	var today = new Date();
+	
+ // id=result1인 요소를 검색
+	var vres = document.querySelector('#result1');
+
+ // 검색한 요소를 출력
+ 	var str = today + "<br>"
+ 	str += today.toLocaleString() + "<br>";
+ 	
+ 	vres.innerHTML = str;
+</script>
+</body>
+</html>

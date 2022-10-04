@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+img{ 
+ 	width : 50px;  
+ 	height : 50px; 
+ } 
+</style>
+<script>
+	function proc1(){
+		ultag = document.getElementsByTagName('ul')[0];
+		ultag = document.querySelector('ul');
+		
+		litag = ultag.querySelectorAll('li'); 
+		// 첫번째 ul태그의 li태그들을 찾는다
+		// 찾은 태그의 태그들을 찾을 때에는 찾은 태그.querySelect~~~를 함 !!!!!
+		// 무조건 document. 아님 !!
+		
+		str = "";
+		
+		// 스크립트에서는 int i 를 쓰지 않는다 변수는 var 또는 let을 쓴다.
+		for(let i = 0; i<litag.length ; i++){
+			str += litag[i].firstChild.data + "<br>";
+		}
+		
+		document.querySelector('#result1').innerHTML = str;
+	}
+	
+	function proc2(){
+		ultag = document.getElementsByTagName('ul')[1];
+		litag = ultag.querySelectorAll('li');
+		
+		for(i = 0 ; i< litag.length ; i++){
+			fdata = litag[i].firstChild.data;
+			//alert(fdata);
+			
+			vimg = document.createElement("img");
+			vimg.src = '../images/' + fdata;
+			vimg.alt = fdata;
+			
+			litag[i].appendChild(vimg);
+			
+		}
+		
+	}
+	
+// 	function proc3(litag){
+	proc3 = (litag) => {
+		fdata = litag.firstChild.data;
+		
+		vimg = document.createElement("img");
+		vimg.src = '../images/' + fdata;
+		vimg.alt = fdata;
+		
+		litag.appendChild(vimg);
+	}
+	
+	// 코드를 실행하면 스크립트가 먼저 실행되므로 .eli를 찾을 수 없다.
+	// 따라서 window.onload를 하면 body가 실행되고 나서 실행되도록 한다. ! 
+// 	window.onload = function(){
+	window.onload = () => {
+		litag = document.querySelectorAll('.eli');
+		
+		for(i = 0 ; i < litag.length ; i++){
+			
+			// 이벤트 등록
+//	 		litag.addEventListner("이벤트 종류", function의 주소값) 
+			// 이벤트 종류 : mouseover(마우스 올려놓으면) , dblclick(더블클릭) click(클릭)
+			//함수의 주소값을 가져오는 것이므로 proc3()이 아니라 proc3이렇게만 한다 !
+			// proc3() 을 쓰면 함수를 실행한 결과값을 리턴한다 !!
+			litag[i].addEventListener("click", liclick );
+		}
+		
+	}
+	
+	function liclick(){
+		
+
+		// 	liclick = () => {
+		// !!!!!!!!!! 람다함수를 쓰면 람다함수에서의 this는 함수 자체를 의미한다 !!!!!!!!!!
+		// 따라서 this가 필요한 경우 람다함수를 쓰지 말고 일반 함수를 쓸것  !!!!!!
+		
+		
+		// 이벤트 등록할때 ()를 쓰지 않는다 그러면 어떤 요소를 가지고 실행을 할지 모르지만
+		// this를 사용가능하도록 설계되어있음 !
+		// 이 함수에서의 this = 클릭한 litag
+		
+		// 클릭한 li 태그의 첫번째 자식의 값을 가져온다. (넣을 이미지 파일명)
+		fdata = this.firstChild.data;
+		
+		// img요소를 만들고 img의 scr와 alt를 만든다
+		vimg = document.createElement("img");
+		vimg.src = '../images/' + fdata;
+		vimg.alt = fdata;
+		
+		this.appendChild(vimg);
+		
+	}
+	
+</script>
+
+</head>
+<body>
+<div>
+	<h3>
+	</h3>
+	<ul>
+		<li>List Item1</li>
+		<li>List Item2</li>
+		<li>List Item3</li>
+		<li>List Item4</li>
+		<li>List Item5</li>
+	</ul>
+	<input type="button" value="확인" onclick="proc1()">
+	<div id="result1"></div>
+</div>
+
+<div>
+	<h3>
+	클릭시 li요소에 해당하는 이미지를 추가한다. - 모든 요소에 대해서 한번에 추가
+	</h3>
+	<ul>
+		<li>Anne-Marie(앤마리)-2002.jpg</li>
+		<li>ccc.jpg</li>
+		<li>check.png</li>
+		<li>Chrysanthemum.jpg</li>
+		<li>circle-dot-o.png</li>
+	</ul>
+	<input type="button" value="확인" onclick="proc2()">
+	<div id="result2"></div>
+</div>
+
+<div>
+	<h3>
+	클릭시 li요소에 해당하는 이미지를 추가한다. - 클릭한 요소에 대해서만<br>
+	&lt;li onclick="proc3(this)">Anne-Marie(앤마리)-2002.jpg&lt;/li>
+	</h3>
+	<ul>
+		<li onclick="proc3(this)">Anne-Marie(앤마리)-2002.jpg</li>
+		<li onclick="proc3(this)">ccc.jpg</li>
+		<li onclick="proc3(this)">check.png</li>
+		<li onclick="proc3(this)">Chrysanthemum.jpg</li>
+		<li onclick="proc3(this)">circle-dot-o.png</li>
+	</ul>
+</div>
+
+<div>
+	<h3>
+	클릭시 li요소에 해당하는 이미지를 추가한다. - 클릭한 요소에 대해서만<br>
+	이벤트 일괄등록 
+	</h3>
+	<ul>
+		<li class="eli">Anne-Marie(앤마리)-2002.jpg</li>
+		<li class="eli">ccc.jpg</li>
+		<li class="eli">check.png</li>
+		<li class="eli">Chrysanthemum.jpg</li>
+		<li class="eli">circle-dot-o.png</li>
+	</ul>
+</div>
+</body>
+</html>
+
+
+
+
+

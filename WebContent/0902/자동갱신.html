@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href = "../css/public.css">
+</head>
+<body>
+<pre>
+  var a = setInterval(func, millisec)  : millisec 시간이 경과 할때마다 function을 수행한다.
+  리턴결과형 a는 setInterval()함수의 id 값
+  
+  백틱을 이용한 템플릿 리터럴(~~~~~~~'''''''''''''')
+  ' 문자 $ { 변수 } 문자, 문자${변수} '
+  
+</pre>
+<input type="button" value="확인" onclick="proc(this)">
+<input type="button" value="멈춤" onclick="stop()">
+
+<br>
+<div id="result1" ></div>
+
+<script>
+var vid = 0;
+var gobjtag = "";
+stop = () => {
+	clearInterval(vid);
+	// 확인버튼을 나타나게 하거나 활성화 시킨다.
+	gobjtag.style.display = "inline"; // 확인버튼을 다시 inline속성으로 나타낸다.
+	
+}
+// function을 만드는 방법
+// function proc(){}
+// proc = function(){}
+// proc = () => { } // 화살표 함수 또는 람다 함수라고 부름
+
+proc = (objtag) => { 
+	// objtag는 확인 버튼 객체이다.
+	// 확인 버튼을 숨기거나 비활성화한다.
+	objtag.style.display = "none"; // 확인버튼을 숨긴다
+	gobjtag = objtag;
+	
+	
+	// 날짜 생성 - 1초마다 갱신
+// 	var vid = setInterval(() => {}, 1000); 이렇게 써도 됨 !
+	vid = setInterval(function(){
+		console.log(vid);
+		// 날짜 생성
+		today = new Date();
+		
+		// id가 result1인 요소를 검색
+// 		vres = document.querySelector("#result1");
+		vres = document.getElementById("result1");
+		
+		vres.innerHTML = today.toLocaleString();
+		//  innerText 나 textContent 둘다 가능 !
+		
+		// 랜덤으로 색상변경
+		cr = parseInt( Math.random() *256);
+		cg = parseInt( Math.random() *256);
+		cb = parseInt( Math.random() *256);
+		cr = parseInt( Math.random() *256);
+		
+		vres.style.backgroundColor = `rgb(${cr}, ${cg}, ${cb} )`;
+	}, 1000);
+	
+}
+</script
+>
+</body>
+</html>

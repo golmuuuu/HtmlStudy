@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+div{
+	border : 1px dotted orange;
+	margin : 5px;
+	padding : 10px;
+	height : auto; /*여러줄이면 알아서 높이 지정됨*/
+	font-size: 1.5em;
+}
+</style>
+<script>
+window.onload = function(){  // window가 로드 된 다음에 저 함수를 실행하라는 말
+	// 스크립트를 위에 쓰고 싶을 때 쓰는 방법
+	
+// 시작하면 id가 result1인 요소에 오늘의 날짜를 출력한다.
+
+//날짜 객체를 생성
+	var today = new Date();
+
+// id=result1인 요소를 검색
+var vres = document.querySelector('#result1');
+
+// 검색한 요소를 출력
+	var str = today + "<br>"
+	str += today.toLocaleString() + "<br>";
+	
+	vres.innerHTML = str;
+}
+</script>
+</head>
+<body>
+
+<pre>
+body태그가 실행되어 window가 완성된후에 script를 실행하도록
+함수를 정의한다.
+스크립트 태그
+window.onload = function(){ 실행할 내용 }
+스크립트 태그
+</pre>
+<div id="result1"></div>
+</body>
+</html>

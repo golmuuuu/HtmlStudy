@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+function proc1(){
+	// class = pp인 요소를 검색
+	// 모든 pp요소를 검색 - 배열로 들어감
+	pplist = document.getElementsByClassName('pp'); // 해당하는 여러 요소를 검색할 땐 elements라고 하기  
+	// pplist[0] pplist[1]
+	pplist[0].innerHTML = "Hello~~~";
+	
+	// 요소 class가 pp인 첫번째 요소가 검색됨
+	vpp = document.querySelector('.pp'); // id를 검색할땐 # class를 검색할 땐 . 붙이기 !!!!!
+	vpp.innerHTML = "Good~~";
+	pplist = document.querySelectorAll('.pp');
+	pplist[2].innerHTML = "사랑은 늘 도망가";
+	
+	for(i = 0; i < pplist.length; i++){
+		pplist[i].style.backgroundColor = "pink";
+	}
+}
+</script>
+</head>
+<body>
+<div>
+	<h3>
+	</h3>
+	
+	<input type="button" value="확인" onclick="proc1()">
+	<div id="result1"></div>
+	
+	<p class ="pp">p1</p>
+	<p class ="pp">p2</p>
+	<p class ="pp">p3</p>
+	<p class ="pp">p4</p>
+	<p class ="pp">p5</p>
+</div>
+</body>
+</html>

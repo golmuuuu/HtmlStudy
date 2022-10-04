@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 외부 css 적용하기 -->
+<link rel="stylesheet" href="../css/public.css">
+
+
+<script type="text/javascript">
+	
+	function proc1(){
+		
+// 		// html요소를 검색
+// 		var ele_price = document.fr.price;
+// 		var ele_su = document.fr.su;
+		
+// 		// 검색 요소의 입력 값 가져오기 - String타입으로 가져옴
+// 		var vprice = parseInt(ele_price.value);
+// 		var vsu = parseInt(ele_su.value);
+		
+		var vprice = parseInt(document.fr.price.value);
+		var vsu = parseInt(document.fr.su.value);
+		
+		alert(vprice * vsu);
+	}
+</script>
+
+
+</head>
+<body>
+<pre>
+	입력한 값의 의해서 계산처리한다.
+	
+	script에서 html요소에 접근 검색 - id, class, tag이름이용, name
+	id 이용 : document.getElementById('price')
+			  document.getElementById('su')
+			  
+	name 이용 : document.fr.price  / document.fr.su
+	// name을 이용하고 싶으면 form에 이름을 정해주어야 input의 이름을 사용할 수 있다 !!!
+	
+	접근한 요소에 입력한 값 - value
+	
+</pre>
+
+<form name ="fr">
+	물품가격 : 
+	<input type="text" name="price" id="price"><br>
+	 수량:
+	 <input type="text" name="su" id="su"><br>
+	 <input type="button" value="계산" onclick="proc1()">
+</form>
+</body>
+</html>

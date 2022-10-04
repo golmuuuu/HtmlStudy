@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#u2{
+	list-style: none;	
+	border : 5px inset red; /*박스가 안에 들어가 있는 것처럼 됨*/
+	border-right: none;
+	border-left: none;
+	height : 80px;
+}
+#u2>li{  /* u2의 자식을 표시할때 > 쓰면 됨  */
+	width : 200px;
+	float : left;
+	border : 2px solid red;
+	margin : 10px;
+	padding : 20px;
+	text-align: center;
+	font-size: 1.5em;
+	letter-spacing: 20px; /*한 글자 사이간격*/
+}
+</style>
+
+</head>
+<body>
+
+<ul id="u1">
+	<li>네이버</li>
+	<li>네이트</li>
+	<li>다음</li>
+	<li>w3school</li>
+</ul>
+<ul id="u2">
+	<li>네이버</li>
+	<li>네이트</li>
+	<li>다음</li>
+	<li>w3school</li>
+</ul>
+</body>
+</html>

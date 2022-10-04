@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<!-- 외부 스타일css파일 적용하는 법 / pre태그 스타일 -->
+<style type="text/javascript"> /* 내부스타일 ! */
+pre{
+	background-color: lightgreen;
+}
+body{
+	background-color : yellow; /*최초로 실행될 때 한번임 */
+}	
+</style >
+<script type="text/javascript"> // 함수는 script에서 정의한다 !!
+	function proc1(){
+	
+	//선택한 배경색을 가져온다.
+	
+	// var a = documnet.fr2.col = 요소 검색 접근 = input="~~~" type="~~`" 이렇게 뜸 
+	// 마지막에 a.value를 써야 값이 추출 됨 !! 
+	var a = document.fr2.col.value //이름으로 가져오는 방법
+	var a = document.getElementById('col').value // id로 가져오는 방법
+	var a = document.querySelector("#col").value // 
+
+	console.log(a);
+	
+ 	document.body.style.backgroundColor = a
+ 	//스크립트에서는 backgroud-color에서 -를 빼고 두번째 단어는 대문자로 한다 !	
+}
+
+</script>
+
+</head>
+<body>
+
+<pre style="background-color : lightblue">
+폼 요소의 속성
+required : 필수항목을 설정
+title : 요소에 마우스를 올려놓았을 때 나타나는 글자
+pattern : 입력시 데이터의 형식을 설정
+placeholder : 입력 요소에 임시로 나타내는 글자
+</pre>
+
+<form name="fr" action="새로운type.jsp" method="post">
+<!-- 폼의 이름을 정하면 fr.email 이렇게 쓸 수 있음 -->
+<!-- 이메일이나 전화번호 type은 역할이 없으므로 그냥 text하면 됨 !! -->
+	이메일 <input type="text" name="email" title="홍길동" 
+			placeholder="abc123@naver.com"><br>
+	전화번호 <input type="text" name="tel"
+			 required pattern="[0-9]{3}[0-9]{4}[0-9]{4}"
+			 title="010-1234-5678"><br>
+	생일 <input type="date" name="bir"><br>
+	나이<input type="number" name="age" min="10" max="100" step="10" value="20"><br>
+	<input type="submit" value="전송">
+</form>
+
+<form name="fr2">
+	배경색 <input type="color" name="col" id="col">
+	<input type="button" value="확인" onclick="proc1()">
+</form>
+</body>
+</html>

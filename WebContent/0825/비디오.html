@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img{
+	width : 500px;
+	heigth : 250px;
+}
+#play{
+	display : none;  /* block, inline */
+}
+</style>
+<!-- 스타일과 스크립트 여는 태그 안에 type = ""있는데 생략 가능함 ! -->
+<script type="text/javascript">
+// 함수정의
+function proc(){
+	//html요소를 검색 접근(id를 이용, class를 이용, 태그이름을 이용)
+	
+	// iframe 검색
+	var ele = document.getElementById('play');
+	
+	// 실행
+	ele.style.display = "block";
+	
+	
+}
+
+
+</script>
+
+</head>
+
+<body>
+<video width="640" height="480"controls>
+	<source src="../multi/trailer.mp4" type='video/mp4'>
+	<source src="../multi/trailer.ogv" type='video/ogg'>
+</video>
+
+<p>유튜브의 동영상을 html로 삽입 하기</p>
+<p>이미지를 클릭하면 동영상이 실행되도록 하는 proc()함수를 호출</p>
+<p>proc()함수를 정의 - id가 play인 html요소를 검색하여 접근</p>
+<img alt="뉴진스1.png" src="../images/뉴진스1.png" onclick="proc()">  
+<br><br>
+
+<!-- 초기 실행시에는 화면에 안보이도록 설정(style에서 설정) 
+	img를 클릭하면 보이도록 설정(proc메소드에서 설정) -->
+
+<!-- ?파라미터  : url을 실행시키기 위한 설정-->
+<iframe id="play" width="560" height="315" 
+  src="https://www.youtube.com/embed/S4UEJePR0UE?autoplay=1&muted" 
+  title="YouTube video player"  
+  allowfullscreen>
+</iframe> 
+<br><br>
+  
+</body>
+</html>  
+
+  
+  

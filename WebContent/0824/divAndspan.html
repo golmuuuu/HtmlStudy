@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+span{
+	background-color : yellow;
+	width : 500px;
+}
+div{
+	border : 5px solid blue;
+	margin : 30px;
+	box-sizing: border-box;
+}
+p{
+	border : 5px solid red;
+	margin : 30px auto;
+	width : 60%; /* div태그 안에 있는 p태그이므로 div태그의 크기의 60%가 됨 */
+	height : 50px;
+	text-align: center;
+	padding-top : 30px;
+
+}
+#d1{
+	width : calc(25% - 1%);
+/* 	height : 400px; */
+	float : left;
+}
+#d2{
+	width : calc(69% - 1%);
+/* 	height : 400px; */
+	float : right;
+}
+.dd{
+	height : 400px;
+	margin : 10px;
+}
+#dd12{
+	height : 450px;
+}
+img{
+	width : 100%;
+	height : 100%;
+} 
+.ddp{
+/* 	border : 2px dotted green;*/
+	border : none;
+ 	border-bottom : 2px dotted green; 
+	margin : 0px;
+	margin-left : 20px;
+	width : 80%;
+	height : 30px;
+	text-align : left;
+	
+}
+</style>
+</head>
+<body>
+<div>
+	<p><span>무궁화 꽃</span>이 피었습니다</p>	
+	<p><span>능소화 꽃</span>이 피었습니다</p>
+</div>
+
+<div id="dd12">
+	<div class="dd" id="d1">
+		<img alt="사자.jpg" src="../images/사자.jpg">
+	</div>
+	<div class="dd" id="d2">
+		<p class="ddp">블럭요소를 나란히 배치하기 위해서 </p>
+		<p class="ddp">style에서 float:left 또는 float:right를 지정</p>
+		<p class="ddp">브라우저 크기에 따라 각 요소도 크기를 조절하기 위해서</p>
+		<p class="ddp">box-size : border-box 또는 content-box를 지정한다.</p>
+		<p class="ddp">width : calc(25% - 1%) 빼기 앞뒤로 공백은 필수이다</p>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<pre>
+버튼을 클릭하면 두사람의 가위바위보를 입력하여 승자를 구한다.
+</pre>
+
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+
+<div id="result1"></div>
+
+<script>
+proc1 = () => {
+
+	freg = /^(가위|바위|보)$/;
+// 	freg = /^[가-하]+$/;
+	// /^[가위|바위|보]$/; 세개중에 하나만 받고 싶으면 !
+	
+	while(true){
+	
+		// 입력
+		var first = prompt("첫번째 사람", "가위 바위 보");
+		// + 기호를 써야 1글자 이상!
+		// 이름 입력받을땐 /^[가-힣]$/
+		if(freg.test(first)) break;
+		
+		// 입력값과 데이터 형식이 일치한지 비교	
+		if(!freg.test(first) ){ // 맞으면 true, 틀리면 false
+			alert("데이터 형식 오류입니다");
+// 			return false;
+		} 
+		
+	}
+	
+	while(true){
+		
+		var second = prompt("두번째 사람", "가위 바위 보");
+		
+		if(freg.test(second)) break;
+		
+		if(!freg.test(second) ){ // 맞으면 true, 틀리면 false
+			alert("데이터 형식 오류입니다");
+// 			return false;
+		} 
+	}
+	
+	
+	
+	if(first == "가위" && second == "보" ||
+	   first == "바위" && second == "가위" || 
+	   first == "보" && second == "바위" ){
+		res = "첫번째 사람이 이겼습니다.";
+		
+	}else if(first == second){
+		res = "비겼습니다.";
+	}else{
+		res = "두번째 사람이 이겼습니다.";
+	} 
+	
+	// 출력내용
+	str = `첫번째 사람 : ${first} <br>`;
+	str += `두번째 사람 : ${second} <br>`;
+	str += `결과 : ${res}`;
+	
+	document.querySelector('#result1').innerHTML = str;
+	
+	
+}
+</script>
+</body>
+</html>

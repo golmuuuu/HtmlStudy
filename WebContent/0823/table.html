@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+ table{
+ 	border : 5px dotted red;    /* border - top/bottom/right/left - px/color/style */
+ 	margin : 30px;
+ 	border-collapse : collapse;  /* 테이블의 선을 합칠때 쓰는법 */
+ }
+ td{
+ 	width : 300px;
+ 	height : 50px;
+ 	text-align: center;
+ }	 
+ th{
+ 	background-color : lightblue;
+ 	height : 70px;'
+ }
+ #tab2{ /*아이디에는 샵을 붙인다 !!*/
+ 	border : 30px outset green;
+ 	
+ }
+</style>
+</head>
+<body>
+
+<pre>
+border : 굵기 형태(solid, dotted, dashed, double, inset, outset) 색상 정할 수 있다.
+</pre>
+
+
+<table border = "1">
+<!-- 테이블으 bord 는 여기서는 1까지밖에 줄수 없다 
+따라서 style에서 세부적인 내용 줌 ! -->
+
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+</table>
+
+
+<table  id="tab2" border = "1">
+
+	<tr>
+		<th>1</th>
+		<th>2</th>
+		<th>3</th>
+<!-- 		//자동으로 가운데 정렬됨 -->
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+<!-- 		자동으로 자용정렬 안됌 -->
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	
+</table>
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+// 객체함수(생성자 함수) - 객체 함수명은 대문자로 시작한다. 
+function Rect(width, height){
+	// 속성
+	this.width = width;
+	this.height = height;
+	
+	// 메소드
+	this.area = function(){ // es1 형식
+		return this.width * this.height;
+	}
+	
+	// es6 형식
+	this.circum = function(){ 
+		return (this.width + this.height) *2 ;
+	}
+}
+
+function proc1(){
+	// Rect객체 생성
+	let r1 = new Rect(2, 5);
+	a = r1.area();
+	b = r1.circum();
+	
+	// 속성 추가
+	Rect.prototype.name = "네모네모"; // 다른 객체를 또 생성할 때 다 네모네모가 됨
+	r1.name = "1111";  // r1의 객체의 이름만 1111로 설정한다.
+	
+	str = `가로 : ${r1.width} <br>`;
+	str += `세로 : ${r1.height} <br>`;
+	str += `면적 : ${a} <br>`;
+	str += `둘레 : ${b} <br>`;
+	
+// 	document.getElementById('result1').innerHTML = str;
+	document.querySelector('#result1').innerHTML = str;
+}
+</script>
+</head>
+<body>
+<div>
+	<h3>
+	</h3>
+	
+	<input type="button" value="확인" onclick="proc1()">
+	<div id="result1"></div>
+</div>
+</body>
+</html>

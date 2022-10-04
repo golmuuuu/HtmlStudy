@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+
+//  rand = Math.floor( Math.rnadom() * 100  + 1 ) ; // 이렇게 하면 97.0 으로 됨 double 형!!
+ rand = parseInt( Math.random() * 100 + 1);
+function proc1(){
+	// 입력한 값을 가져온다. id를 검색, value를 이용하여 값을 가져온다.
+	invalue  = document.getElementById('number').value; 
+	console.log(rand, invalue);	
+	// 비교 (rand 값과 invalue를 비교 )
+	if(rand == invalue) result1 = "정답입니다 !";
+	if(rand > invalue) result1 = "힌트 : 더 큰 수로 입력";
+	if(rand < invalue) result1 = "힌트 : 더 작은 수로 입력";
+	document.getElementById("result1").innerHTML = result1;
+}
+
+function proc2(){
+	arr = ["가위", "바위", "보"];
+	
+	rand = parseInt( Math.random() * arr.length);
+	
+	com = arr[rand];
+	my = prompt("가위 바위 보 중 하나를 입력하세요 !");
+	
+	if(com == my){
+		res = "비겼습니다!";
+	}else if(rand == 0 && my == "바위" ||
+			rand == 1 && my == "보" ||
+			rand == 2 && my == "가위"){
+		res = "이겼습니다 !";
+	}else{
+		res = "졌습니다!";	
+	}
+	console.log(my, com);
+	str = `컴 : ${com} <br> user : ${my} <br> 결과 : ${res} <br>`;
+	document.querySelector("#result2").innerHTML = str;
+}
+
+function proc3(){
+	
+	arr = [];
+// 	while(arr.length < 6){
+// 		rand = parseInt( Math.random() * 45 + 1);
+// 		if(arr.indexOf(rand) < 0){
+// 			arr.push(rand)
+// 		}
+// 	}
+	// for문 사용하는 방법
+	for(i = 0 ; arr.length <6 ; i++){
+		rand = parseInt( Math.random() * 45 + 1);
+		if(arr.indexOf(rand) < 0){
+			arr.push(rand)
+		}
+		
+	}
+	document.querySelector("#result3").innerHTML = "로또번호 : " +arr;
+
+	 
+}
+</script>
+</head>
+<body>
+<div>
+	<h3>
+	랜덤을 발생
+	입력해서 맞추는 프로그램
+	힌트를 작성하여 제시한다.
+	</h3>
+	<input type="text" id="number">
+	<input type="button" value="확인" onclick="proc1()">
+	<div id="result1"></div>
+</div>
+
+<div>
+	<h3>
+	가위 바위 보 게임을 할 수 있는 프로그램을 작성하시오.
+	(컴퓨터는 랜덤, 사용자는 prompt로 입력 받아서 처리) - 배열에 가위 바위 보를 저장
+	</h3>
+	<input type="button" value="확인" onclick="proc2()">
+	<div id="result2"></div>
+</div>
+
+<div>
+	<h3>
+	로또 번호를 생성하는 프로그램을 작성하시오.
+	(1번 ~ 45번 중 6개의 번호를 추첨)
+	</h3>
+	<input type="button" value="확인" onclick="proc3()">
+	<div id="result3"></div>
+</div>
+</body>
+</html>

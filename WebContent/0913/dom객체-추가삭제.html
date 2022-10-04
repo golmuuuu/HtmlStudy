@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+
+	// 랜덤 문자열 - 배열로 생성
+	arr = ["HTML", "JavaScript", "css", "사랑은 늘 도망가", 
+			"무지개", "이젠 나만 믿어요", "다시 만날 수 있을까"];
+	// 앞에 아무것도 붙이지 않은 변수는 전역변수임 ! 
+	// 다른 함수에서도 쓸수 있지만 1번 함수 안에 들어있으면 arr이 생성되지 않았으므로
+	// 위로 올림 !
+	
+	function proc1(){
+		
+		// 랜덤 발생
+		rnd = parseInt(Math.random() * arr.length);
+		
+		// 랜덤번째의 문자열을 선택한다. 
+		txt = arr[rnd];
+		
+		// txt를 이용하여 textNode를 생성한다.
+		// 여기서 노드란 ? 돔 트리에서의 하나하나의 요소를 다 노드라고 함 !
+		tnode = document.createTextNode(txt);
+		
+		// p태그 생성하기
+		ptag = document.createElement('p');
+		
+		// p태그에 tnode를 추가한다.
+		ptag.appendChild(tnode);
+		
+		// restul1에 p태그를 추가한다.
+		document.getElementById('result1').appendChild(ptag);
+				
+	}
+	
+	proc2 = () =>{
+		
+// 		divtag = document.getElementById('result1') 
+// 		ptag = divtag.lastChild;
+// 		divtag.removeChild(ptag);
+		
+		// 선생님 방법
+		// 부모.removeChild(자식)
+		// 부모 - result1  자식 - ptag
+		parent = document.getElementById('result1');
+// 		child = parent.lastChild;
+		child = parent.firstChild;
+		
+		parent.removeChild(child)
+		
+	}
+	
+	window.onload = function(){
+		vdel = document.querySelectorAll('.del');
+		
+		for(i = 0; i< vdel.length ; i++){
+			vdel[i].addEventListener('click', tagRemove);
+		}
+		
+	}
+	
+	function tagRemove(){
+		// this : 삭제버튼
+		
+		// 부모.removeChild(자식)   지울대상.remove();
+		
+		console.log(this , this.parentNode);
+		
+		this.parentNode.remove();
+	}
+	
+	
+	function proc3(){
+		
+		// 랜덤 발생
+		rnd = parseInt(Math.random() * arr.length);
+		
+		// 랜덤번째의 문자열을 선택한다. 
+		txt = arr[rnd];
+		
+		// textNode생성
+		tnode = document.createTextNode(txt);
+		
+		// button생성
+		
+			// -- input태그로 만들때
+			// -- <input type="button" value="삭제" class = "del">
+		but = document.createElement('input');
+		but.type = "button";
+		but.value = "삭제";
+// 		but.class = "del";  //class는 예약어라서 이렇게 쓸수 없다. 
+		but.setAttribute('class', 'del'); // 따라서 setAttribute메소드를 사용해서 클래스 이름을 정해준다.
+		but.onclick = function(){
+			// this => 클릭한 삭제버튼
+			// 지울대상(ptag).remove()
+			this.parentNode.remove();
+		}
+		
+		// 참고 : 아이디는 반복되면 안됨 !!! 따라서 클래스 이름을 주는것이다 !
+
+			// button태그로 만들때
+			// <button type="button">삭제</button>
+// 		but = document.createElement('button');
+// 		but.type = "button";
+// 		but.innerHTML = "삭제";
+		
+		// ptag생성
+		ptag = document.createElement("p");
+		
+		// p태그에 textNode를 추가
+		ptag.appendChild(tnode);
+		
+		// p태그에 button 추가
+		ptag.appendChild(but);
+		
+		// result2에 p태그 추가
+		document.getElementById('result2').appendChild(ptag)
+		
+		
+	}
+	
+</script>
+</head>
+<body>
+<div>
+	<h3>
+	</h3>
+	
+	<input type="button" value="추가" onclick="proc1()">
+	<input type="button" value="삭제" onclick="proc2()">
+	<div id="result1"></div>
+</div>
+
+
+<div>
+	<h3>
+	새롭게 동적으로 실행중에 생성된 요소는 addEventListener를 이용해서 일괄 등록할 수 없다.
+	따라서 생성 시점에서 이벤트를 등록한다.!
+	</h3>
+	
+	<input type="button" value="추가삭제" onclick="proc3()">
+	<div id="result2"></div>
+</div>
+</body>
+</html>

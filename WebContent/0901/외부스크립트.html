@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<!-- 바디나 헤드에 스크립트를 쓰는 것을 내부 스크립트라고 하는 것임 -->
+<!-- css폴더 만들어서 링크로 하는 것 처럼 스크립트를 지정한 파일을 -->
+<!-- 가져와서 적용하는 것을 외부스크립트라고 함 -->
+
+<!-- 외부스크립트 삽입 -->
+<script src="../js/mypro.js"></script>
+
+</head>
+<body>
+<pre>
+버튼을 클릭하면 외부스크립트에 정의되어있는 proc()함수를 호출한다.
+외부스크립트를 포함하는 방법
+&lt;script src="../js/mypro.js">&lt;/script>
+
+결과 출력 요소인 div를 클릭할때마다 
+배경색을 랜덤으로 바꾼다. 
+</pre>
+<input type="button" value="확인" onclick="proc()">
+
+<br>
+<div id="result1" onclick="change()"></div>
+</body>
+</html>

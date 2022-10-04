@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+/* body{ */
+/* 	min-width: 1800px; */
+/* } */
+img{
+	display : inline-block;
+	margin : 0px auto;
+	width: 100%;
+	height : 100%;
+}
+#main>div{
+	border : 2px dotted green;
+	background-color: #12f5d7;
+	height : 35%;
+	margin : 30px;
+	padding : 30px;
+}
+#middle{
+	border : none;
+	display: flex;
+	flex-direction: row;
+}
+#u1{
+	font-size: 1.5em;
+}
+li span{
+	color : yellow;
+}
+
+div{
+	border : 1px solid red;
+	border-radius : 30px;
+	margin : 2px;
+	padding : 3px;
+	padding-top: 10px;
+	box-sizing : border-box; /*content-box : 안에있는 실제 내용만 적용되므로 더 큰 사이즈가 필요함..?*/
+	
+}
+#header{
+	height : 200px;
+	background: #ffadaf;
+	font-size: 2.0em;
+	text-align: center;
+}
+#left{
+/* 	flex : 1 1 0; */
+    width : calc(30% - 1%);  
+	height : auto;
+	background: #a9d8f1;
+	margin : 20px;
+	padding : 10px 30px;
+
+}
+#main{
+/* 	flex : 2 1 0; */
+  	width : calc(70% - 1%);  
+	height : auto;
+	background: #12f5f9;
+	margin : 20px;
+	padding : 20px;
+}
+#right{
+/* 	flex : 1 1 0; */
+  	width : calc(27% - 1%);  /*줄어들을때 1%씩 빼라...?*/  
+	height : 500px;
+	background: #aaddff;  /* #aaddff = #adf */
+}
+#footer{
+	height : 80px;
+	background: #dff2ad;
+	text-align: center;
+	font-size: 2.0em;
+}
+</style>
+</head>
+<body>
+<div id="header"><h3>My Bolg Page</h3> 시멘틱 태그로 만들어진 페이지 입니다</div>
+<div id="middle">
+	<div id="left">
+		<h1>Links</h1>
+		<ul id="u1">
+			<li>w3schools</li>
+			<li><span>Naver</span></li>
+			<li><span>Daum</span></li>
+		</ul>
+		<figure>
+			<img alt="spongebob.png" src="../images/spongebob.png">
+			<figcaption>스폰지밥</figcaption>
+		</figure>
+			
+	</div>
+	
+	<div id="main">
+		<div id="content1">
+			<h2>Semantic Tags</h2>
+			<p>시멘틱 요소(Semantic elements)들을 브라우저에게 
+			요소의 의미나 목적을 명확하게 알려주는 요소이다.
+			레이아웃을 만들때 쓰는 것. 의미가 있는 요소라면
+			div보다는 시멘틱 태그를 사용해준다.
+			</p>
+		</div>
+		<div id="content2">
+			<h2>div와 span</h2>
+			<p>div은 "divide"의 약자로서 페이지를 논리적인 섹션으로 분리하는데
+			사용되는 태그이다. span요소는 인라인 요소로서 텍스트를 위한 컨테이너로
+			사용할 수 있다.</p>
+		</div>
+	</div>
+<!-- 	<div id="right">right</div> -->
+</div>
+<div id="footer">Copyright (c)2019 Hong</div>
+</body>
+</html>

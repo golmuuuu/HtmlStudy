@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+input{
+	font-size: 1.5em;
+}
+</style>
+<script>
+	function add(n1, n2){
+		return n1 + n2 ;
+	}
+	function sub(n1, n2){
+		return n1 - n2;
+	}
+	function multi(n1, n2){
+		return n1 * n2;
+	}
+	function div(n1, n2){
+		return (n1 * 1.0) / n2;
+	}
+	
+	function proc1(calc){
+		// 입력한 x, y값을 가져오기 !
+		vx = parseInt(document.getElementById('x').value);
+		vy = parseInt(document.getElementById('y').value); 
+		// .value를 안하면 input요소를 가져오므로 .value를 해야 요소가 가지고 있는 값이 들어온다 ! 
+		res = "";
+		switch(calc){
+		case "+":
+			res = add(vx, vy);
+			break;
+		case '-':
+			res = sub(vx, vy);
+			break;
+		case '*':
+			res = multi(vx, vy);
+			break;
+		case '/':
+			res = div(vx, vy);
+			break;
+		}
+		
+		// 넣을 곳이 input요소이면 value로 넣는다 !!!!
+		document.getElementById('result').value = res;
+	}
+	
+</script>
+</head>
+<body>
+<div>
+	x : <input type="text" id="x"><br>
+	y : <input type="text" id="y"><br>
+	<br>
+	결과 : <input type="text" id="result"><br>
+	
+	<br>
+	<input type="button" value="+" onclick="proc1('+')">
+	<input type="button" value="-" onclick="proc1('-')">
+	<input type="button" value="*" onclick="proc1('*')">
+	<input type="button" value="/" onclick="proc1('/')">
+</div>
+</body>
+</html>

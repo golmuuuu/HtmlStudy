@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+	function proc1() {
+		str = "protocol : " + location.protocol + "<br>"; 
+		str += "host : " + location.host + "<br>"; 
+		str += "port : " + location.port + "<br>"; 
+		str += "hostname : " + location.hostname + "<br>"; 
+		str += "href : " + location.href + "<br>";
+		str += "pathname : " + location.pathname + "<br>";
+		
+		document.getElementById('result1').innerHTML = str;
+			
+	}
+	
+ function proc2(){
+// 	 locatoin.href="http://192.168.404.12/webpro/0913/test.jsp";
+                                                                 
+	 location.href="test.jsp"; 
+	
+ }
+ 
+ function proc3(){
+	 location.replace("test.jsp");
+ }
+ 
+ function proc4(){
+	 // 랜덤으로 문자열 발생 - 출력
+	 arr = ["사랑은 늘 도망가", "별빛같은 나의 사랑아", "손이 참 곱던 그대", "JavaScript" , "html", "우리들의 블루스"];
+	 
+ 	rnd = parseInt(Math.random() * arr.length);
+	str = "<h1>" + arr[rnd] + "</h1>";
+	
+	document.getElementById('result4').innerHTML = str;
+	document.getElementById('result4').style.color = 'red';
+	 
+	 // 1초 후에 새로고침 하듯이 reload를 수행한다.
+	 setTimeout(function(){
+		 location.reload();
+	 }, 1000);
+	 
+	 
+	 
+ }
+</script>
+</head>
+<body>
+<div>
+	<h3>
+	</h3>
+	
+	<input type="button" value="확인" onclick="proc1()">
+	<div id="result1"></div>
+</div>
+
+<div>
+	<h3>
+	</h3>
+	
+	<input type="button" value="목록" onclick="proc2()">
+	<input type="button" value="목록" onclick="location.href='test.jsp?id=a001'"> <!-- 이렇게 바로 링크를 걸어줄 수도 있음 -->
+	<br>
+	<br>
+	href에서 스크립트 함수 호출하기 href="javascript:proc2()"
+	<a href="javascript:proc2()">공지사항</a><br>
+	
+	onclick = "함수 ()" href="#" onclick="proc2()"
+	<a href="#" onclick="proc2()">공지사항</a><br> <!--  # = 현재페이지에 머문다 ! -->
+	
+	onclick = "location.href" href="#" onclick="location.href='test.jsp?id=a001'"
+	<a href="#" onclick="location.href='test.jsp?id=a001'">공지사항</a>
+	<div id="result2"></div>
+</div>
+
+<div>
+	<h3>
+	loaction.replace('test.jsp');<br>
+	test.jsp로 페이지 대체함 (페이지 이동이 아님 !!!! 따라서 변경 후 되돌아 올 수 없다 )
+	</h3>
+	
+	<input type="button" value="리스트" onclick="proc3()">
+	<div id="result3"></div>
+</div>
+
+<div>
+	<h3>
+	loaction.reload(); -- 파라미터에 따로 지정할 필요 없다<br>
+	수행 후 현재 페이지로 다시 로드한다 (새로고침과 비슷한 효과임 !)
+	</h3>
+	
+	<input type="button" value="리스트" onclick="proc4()">
+	<div id="result4"></div>
+</div>
+
+</body>
+</html>

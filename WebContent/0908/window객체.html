@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+ function proc1(){
+	 
+// 	window.open(url, name, speces);
+// 	window.open("http://www.naver.com");
+// 	window.open("random객체.html", "random"); 
+//  이름 : 타겟을 지정하거나 윈도우의 이름 설정 
+//  이름을 random으로 했지만 창에 뜨지는 않는다. 논리적인 이름이기 때문 !
+// 	window.open("random객체.html", "_self");
+// 	window.open('String객체.html', "스트링", "width=500 height=400 top=300 left=500");
+
+// 	window.open("opensub.html", "_blank", "width=500 height=300 top=100 left=100");
+	a = window.open("opensub.html", "_blank", "width=500 height=300 top=100 left=100");
+	
+	// a의 사이즈를 가로세로 100 100으로 지정한다.!
+// 	a.resizeTo(100, 100);
+	// 내가 설정한 a의 사이즈에 100 100을 더해서 창을 연다
+// 	a.resizeBy(100, 100);
+	
+	// 창이 열리는 위치를 200 200으로 지정한다.
+// 	a.moveTo(200, 200);
+	// 창이 열리는 위치에 200 200을 더해서 지정한다.
+// 	a.moveBy(200, 200);
+	
+ }
+</script>
+</head>
+<body>
+<div>
+	<h3>
+	</h3>
+	
+	<input type="button" value="확인" onclick="proc1()">
+	<div id="result1"></div>
+</div>
+</body>
+</html>

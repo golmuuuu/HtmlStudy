@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+p{
+	border : 2px solid green;
+	width : 50%;
+	height : 200px;
+	word-wrap : break-word; /*옆으로 넘칠때 알아서 자리 넘어가면 끊어주는 기능*/
+	overflow : auto;  /*밑으로 넘칠때    hidden auto scroll*/
+}
+</style>
+
+<script type="text/javascript">
+
+/*스크립트에서 {} 는 객체를 의미한다. 
+ * 스크립트에서는 []를 쓰지 않아도 알아서 배열로 들어간다.
+ */
+
+var str = ["HappyNewYear", "사랑은늘도망가", "별빛같은나의사랑아", "우리들의블루스", "다시만날수있을까"];
+
+function proc1(){
+	
+// 	0.0~~4.9999 - 정수형으로 바꾸면 0~4까지 나옴
+	rand = parseInt(Math.random() * str.length );
+	console.log(str[rand]);
+// 	str[rand]
+	
+	// 요소 p태그를 검색 - id, class, 태그이름
+	// id로 검색할때는 getElement
+	// 클래스나 태그이름으로 검색할때는 같은 이름을 가진게 많을 수 있으므로 getElement(s) s를 붙인다 !
+	/* var : 변수 앞에 var 써도 되고 안써도 됨*/
+	ptag = document.getElementsByTagName('p')[0]; // 0번째 p태그를 검색함
+	
+	// ptag에 랜덤으로 발생되는 문자열을 추가한다.
+	
+	/* ptag.append(str[rand]); // 이건 문자열을 그냥 넣을때 쓰는 방법 ! */
+	
+	// appendChild : ptag안에 자식 요소를 추가한다
+	// 이렇게 하면 Node형식이 아니라는 오류가 뜸 
+	// Node : 트리구조에서 하나의 큰 틀을 의미함 <html> <head> <body> <p> 이런것
+	// 따라서 문자열을 node로 생성해야함
+	text = document.createTextNode(str[rand]) // 텍스트를 node로 만듬
+	ptag.appendChild(text);
+}
+</script>
+</head>
+<body>
+<p class="a">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Aeneannecmollisnulla.Phaselluslaciniatempusmauriseulaoreet.Proingravidavelitdictumduiconsequatmalesuada.
+</p>
+
+<input type="button" value="확인1" onclick="proc1()">
+</body>
+</html>

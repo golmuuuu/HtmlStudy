@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  table{
+  	border : 5px solid red; 
+  	margin : 100px;  
+  	/*  이렇게 한번에 지정하는 것이 일반적이다 ! */
+
+  	empty-cells: hide; /* show */
+	/* 값이 없는 셀을 아예 안보이게 할때 hide*/  	
+  	
+  	
+  	
+  	
+  	/* border-top : 2px dotted blue;
+  	border-bottom : 5px dashed green;
+  	
+  	border-left-style : double;
+  	border-left-width : 10px;
+  	border-left-color : blue; 
+  	어느 특정한 한 부분을 고치고 싶을 때 쓰는 방법*/
+  	
+  }
+  td{
+  	width : 300px;
+  	height : 50px;
+  	text-align: center;
+  }
+  th{
+  	height : 60px;
+   	background-color : blue; 
+  	color : white;   /* 글자색은 그냥 color임 */
+  	font-size : 1.5em;  /* 1.5em : 1.5배 */
+  	
+  	border-bottom : 8px double green;
+  }
+  #tab2{
+  	border-collapse: collapse; /*테이블 각 셀끼리의 공간을 합칠때*/
+  
+  }
+  #tab3{
+  	border-spacing: 10px; /*셀 사이의 공간을 넓힐때*/
+  }
+</style>
+
+</head>
+<body>
+<table border="1">   <!-- 보더 = "1" / '1' 둘다 가능하다 ! -->
+	<tr>
+		<th>이름</th>   <!-- th : 자동으로 가운데 정렬, 굵은 글씨 -->
+		<th>주소</th>
+		<th>전화번호</th>
+	</tr>
+	
+	<tr>
+		<td>홍길동</td>
+		<td>대전</td>
+		<td>010-1111-2222</td>
+	</tr>
+	<tr>
+		<td>개나리</td>
+		<td>대구</td>
+		<td>010-4444-1234</td>
+	</tr>
+	<tr>
+		<td>진달래</td>
+		<td>부산</td>
+		<td>010-1234-5678</td>
+	</tr>
+	<tr>
+		<td>수선화</td>
+		<td>서울</td>
+		<td></td>
+	</tr>
+</table>
+
+<table id="tab2" border="1">   <!-- 보더 = "1" / '1' 둘다 가능하다 ! -->
+	<tr>
+		<th>이름</th>   <!-- th : 자동으로 가운데 정렬, 굵은 글씨 -->
+		<th>주소</th>
+		<th>전화번호</th>
+	</tr>
+	
+	<tr>
+		<td>홍길동</td>
+		<td>대전</td>
+		<td>010-1111-2222</td>
+	</tr>
+	<tr>
+		<td>개나리</td>
+		<td>대구</td>
+		<td>010-4444-1234</td>
+	</tr>
+	<tr>
+		<td>진달래</td>
+		<td>부산</td>
+		<td>010-1234-5678</td>
+	</tr>
+	<tr>
+		<td>수선화</td>
+		<td>서울</td>
+		<td></td>
+<!-- 		<td>010-3434-5656</td> -->
+	</tr>
+</table>
+
+<table id="tab3" border="1">   <!-- 보더 = "1" / '1' 둘다 가능하다 ! -->
+	<tr>
+		<th>이름</th>   <!-- th : 자동으로 가운데 정렬, 굵은 글씨 -->
+		<th>주소</th>
+		<th>전화번호</th>
+	</tr>
+	
+	<tr>
+		<td>홍길동</td>
+		<td>대전</td>
+		<td>010-1111-2222</td>
+	</tr>
+	<tr>
+		<td>개나리</td>
+		<td>대구</td>
+		<td>010-4444-1234</td>
+	</tr>
+	<tr>
+		<td>진달래</td>
+		<td>부산</td>
+		<td>010-1234-5678</td>
+	</tr>
+	<tr>
+		<td>수선화</td>
+		<td>서울</td>
+		<td></td>
+<!-- 		<td>010-3434-5656</td> -->
+	</tr>
+</table>
+
+</body>
+</html>
